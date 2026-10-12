@@ -1,0 +1,13 @@
+name: learning-workflow
+on: [push]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v7
+        with:
+          node-version: lts/*
+      - run: npm ci
+      - run: npx playwright install --with-deps
+      - run: npx playwright test sauceDemo.spec.js
