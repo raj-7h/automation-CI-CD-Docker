@@ -17,6 +17,8 @@ test("Test on SauceDemo", async ({ page }) => {
   const checkCart = new checkout(page);
   checkCart.checkOut();
 
+  console.log("just to check workflow");
+
   await expect(
     page.locator(".complete-header", { hasText: "Thank you for your order!" }),
   ).toBeVisible();
